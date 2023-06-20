@@ -1,8 +1,8 @@
 import ClientProvider from "@/components/ClientProvider";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { fetchPageInfo } from "@/utils/fetchers";
 import { Metadata } from "next";
+import { fetchPageInfo } from "@/utils/fetchers";
 
 const inter = Inter({ subsets: ["latin"] });
 

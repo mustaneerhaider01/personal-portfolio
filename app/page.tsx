@@ -6,7 +6,6 @@ import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
-import { urlForImage } from "@/sanity/lib/image";
 import {
   fetchExperiences,
   fetchPageInfo,
