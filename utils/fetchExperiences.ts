@@ -1,6 +1,5 @@
-import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import { NextResponse } from "next/server";
+import { groq } from "next-sanity";
 
 const query = groq`
   *[_type == "experience"] {
@@ -9,7 +8,9 @@ const query = groq`
   }
 `;
 
-export async function GET(req: Request) {
+const fetchExperiences = async () => {
   const experiences: Experience[] = await client.fetch(query);
-  return NextResponse.json({ experiences });
-}
+  return experiences;
+};
+
+export default fetchExperiences;

@@ -12,7 +12,10 @@ import {
   fetchProjects,
   fetchSkills,
   fetchSocials,
-} from "@/utils/fetchers";
+} from "@/utils";
+import { Metadata } from "next";
+
+export const revalidate = 10;
 
 export default async function Home() {
   const pageInfo = await fetchPageInfo();
@@ -56,4 +59,13 @@ export default async function Home() {
       <Footer pageInfo={pageInfo} />
     </div>
   );
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const pageInfo = await fetchPageInfo();
+
+  return {
+    title: pageInfo.name,
+    description: pageInfo.backgroundInformation,
+  };
 }

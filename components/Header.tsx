@@ -9,7 +9,14 @@ type Props = {
 };
 
 function Header({ socials }: Props) {
-  const router = useRouter();
+  const handleScroll = () => {
+    const heroElement = document.getElementById("contact")!;
+    heroElement.scrollIntoView({
+      behavior: "smooth",
+      block: "end",
+      inline: "nearest",
+    });
+  };
 
   return (
     <header
@@ -43,7 +50,7 @@ function Header({ socials }: Props) {
       </motion.div>
 
       <motion.div
-        onClick={() => router.push("#contact")}
+        onClick={handleScroll}
         initial={{
           x: 500,
           opacity: 0,
