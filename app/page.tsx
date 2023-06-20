@@ -14,7 +14,6 @@ import {
   fetchSkills,
   fetchSocials,
 } from "@/utils/fetchers";
-import Image from "next/image";
 
 export default async function Home() {
   const pageInfo = await fetchPageInfo();
