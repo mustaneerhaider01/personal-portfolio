@@ -15,14 +15,14 @@ function ExperienceCard({ experience }: Props) {
     >
       <motion.img
         initial={{
-          y: -50,
+          y: -100,
           opacity: 0,
         }}
         whileInView={{
           y: 0,
           opacity: 1,
         }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.2 }}
         viewport={{ once: true }}
         src={urlForImage(experience.companyImage).url()}
         className="h-24 w-24 rounded-full xl:w-[110px] xl:h-[110px] object-cover"
