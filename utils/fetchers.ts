@@ -14,7 +14,9 @@ export const fetchSkills = async () => {
 };
 
 export const fetchProjects = async () => {
-  const res = await fetch(`${baseUrl}/api/getProjects`);
+  const res = await fetch(`${baseUrl}/api/getProjects`, {
+    next: { revalidate: 10 },
+  });
 
   const data = await res.json();
   const projects: Project[] = data.projects;
