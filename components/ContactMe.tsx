@@ -59,8 +59,8 @@ function ContactMe({ pageInfo }: Props) {
       }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen relative flex flex-col text-center md:text-left max-w-7xl mx-auto px-10 
-      justify-evenly items-center"
+      className="h-screen relative flex flex-col text-center md:text-left max-w-7xl mx-auto 
+      px-10 justify-evenly items-center"
     >
       <h3
         className="absolute top-20 uppercase tracking-[20px] text-gray-500 text-xl 
@@ -70,7 +70,7 @@ function ContactMe({ pageInfo }: Props) {
       </h3>
 
       <div className="flex flex-col space-y-7 mt-10">
-        <h4 className="text-3xl md:text-4xl font-semibold text-center">
+        <h4 className="text-2xl md:text-4xl font-semibold text-center">
           I have just got what you need.{" "}
           <span className="underline decoration-[#F7AB0A]/50">Lets Talk.</span>
         </h4>
@@ -94,9 +94,9 @@ function ContactMe({ pageInfo }: Props) {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col space-y-2 w-fit mx-auto"
+          className="flex flex-col space-y-2 w-[18rem] sm:w-[25rem] md:w-fit mx-auto"
         >
-          <div className="flex space-x-2">
+          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
             <input
               {...register("name", { required: true, maxLength: 30 })}
               placeholder="Name"
