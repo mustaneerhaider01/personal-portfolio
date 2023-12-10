@@ -5,65 +5,60 @@ import Image from "next/image";
 type Props = {
   experience: Experience;
 };
-
-function ExperienceCard({ experience }: Props) {
+export default function ExperienceCard({ experience }: Props) {
   return (
-    <article
-      className="flex flex-col rounded-lg items-center space-y-6 flex-shrink-0 w-[300px] 
-      md:w-[400px] xl:w-[500px] snap-center bg-[#292929] p-5 opacity-40 hover:opacity-100 
-      cursor-pointer transition-opacity overflow-hidden"
-    >
+    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[350px] md:w-[600px] lg:w-[650px] xl:w-[700px] snap-center bg-[#292929] p-10 opacity-40 hover:opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.img
-        initial={{
-          y: -100,
-          opacity: 0,
-        }}
-        whileInView={{
-          y: 0,
-          opacity: 1,
-        }}
+        initial={{ y: -100, opacity: 0 }}
         transition={{ duration: 1.2 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        src={urlForImage(experience.companyImage).url()}
-        className="h-24 w-24 rounded-full xl:w-[110px] xl:h-[110px] object-cover"
+        className="w-16 h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 2xl:w-[130px] 2xl:h-[130px] rounded-full object-contain"
+        src={urlForImage(experience?.companyImage).url()}
       />
 
-      <div className="md:px-6">
-        <h4 className="text-xl md:text-2xl font-light">
-          {experience.jobTitle}
+      <div className="xl:px-10">
+        <h4 className="text-xl md:text-2xl 2xl:text-4xl font-light">
+          {experience?.jobTitle}
         </h4>
-        <p className="font-bold text-base md:text-xl mt-1">
-          {experience.company}
+
+        <p className="font-bold md:text-lg 2xl:text-2xl mt-1">
+          {experience?.company}
         </p>
 
         <div className="flex space-x-2 my-2">
-          {experience.technologies.map((tech) => (
+          {experience.technologies.map((technology, i) => (
             <Image
-              key={tech._id}
-              src={urlForImage(tech.image).url()}
-              alt={tech.title}
-              width={30}
-              height={30}
-              className="object-contain"
+              key={i}
+              height={32}
+              width={32}
+              className="h-8 w-8 lg:h-12 lg:w-12 rounded-full object-contain"
+              src={urlForImage(technology.image).url()}
+              alt="Experience"
             />
           ))}
         </div>
 
-        <p className="uppercase py-4 text-gray-300 text-sm">
-          {new Date(experience.dateStarted).toDateString()} -{" "}
+        <p className="uppercase text-xs md:text-base py-2 text-gray-300">
+          {new Date(experience.dateStarted).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+          })}
+          -{" "}
           {experience.isCurrentlyWorkingHere
             ? "Present"
-            : new Date(experience.dateEnded).toDateString()}
+            : new Date(experience.dateEnded).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+              })}
         </p>
 
-        <ul className="list-disc space-y-3 ml-5 text-sm">
-          {experience.points.map((point) => (
-            <li key={point}>{point}</li>
+        <ul className="list-disc space-y-2 lg:space-y-4 ml-5 text-xs md:text-base">
+          {experience?.points.map((point, i) => (
+            <li key={i}>{point}</li>
           ))}
         </ul>
       </div>
     </article>
   );
 }
-
-export default ExperienceCard;

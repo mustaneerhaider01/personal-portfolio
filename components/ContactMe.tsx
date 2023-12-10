@@ -22,6 +22,7 @@ function ContactMe({ pageInfo }: Props) {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (formData) => {
@@ -49,6 +50,8 @@ function ContactMe({ pageInfo }: Props) {
       toast.error("An error occured while sending the email.", {
         id: id,
       });
+    } finally {
+      reset();
     }
   };
 
