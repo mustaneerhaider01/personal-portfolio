@@ -26,9 +26,9 @@ function Footer({ pageInfo }: Props) {
         <Image
           src={urlForImage(pageInfo.profilePic).url()}
           alt={pageInfo.name}
-          width={40}
-          height={40}
-          className="rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
+          width={44}
+          height={44}
+          className="rounded-full object-cover h-11 w-11 filter grayscale hover:grayscale-0 cursor-pointer"
         />
       </div>
     </footer>

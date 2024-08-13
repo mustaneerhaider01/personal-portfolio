@@ -2,7 +2,6 @@
 
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 
 type Props = {
   socials: Social[];

@@ -1,5 +1,7 @@
-import { client } from "@/sanity/lib/client";
+import { cache } from "react";
 import { groq } from "next-sanity";
+
+import { client } from "@/sanity/lib/client";
 
 const query = groq`
   *[_type == "project"] {
@@ -8,9 +10,9 @@ const query = groq`
   }
 `;
 
-const fetchProjects = async () => {
+const fetchProjects = cache(async () => {
   const projects: Project[] = await client.fetch(query);
   return projects;
-};
+});
 
 export default fetchProjects;
