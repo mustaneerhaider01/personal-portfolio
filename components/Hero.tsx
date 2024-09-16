@@ -27,13 +27,14 @@ function Hero({ pageInfo }: Props) {
       text-center overflow-hidden"
     >
       <BackgroundCircles />
-      <Image
-        src={urlForImage(pageInfo.heroImage).url()}
-        alt=""
-        width={110}
-        height={110}
-        className="rounded-full object-cover mx-auto"
-      />
+      <div className="relative h-[110px] w-[110px] mx-auto rounded-full overflow-hidden">
+        <Image
+          src={urlForImage(pageInfo.heroImage).url()}
+          alt="Avatar"
+          fill
+          className="object-cover"
+        />
+      </div>
 
       <div className="z-20">
         <h2 className="text-sm text-gray-500 uppercase tracking-[15px] pb-2">
