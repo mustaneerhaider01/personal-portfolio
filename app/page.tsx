@@ -17,11 +17,13 @@ import {
 export const revalidate = 10;
 
 export default async function Home() {
-  const pageInfo = await fetchPageInfo();
-  const skills = await fetchSkills();
-  const projects = await fetchProjects();
-  const socials = await fetchSocials();
-  const experiences = await fetchExperiences();
+  const [pageInfo, skills, projects, socials, experiences] = await Promise.all([
+    fetchPageInfo(),
+    fetchSkills(),
+    fetchProjects(),
+    fetchSocials(),
+    fetchExperiences(),
+  ]);
 
   return (
     <main

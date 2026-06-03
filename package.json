@@ -35,5 +35,9 @@
   },
   "devDependencies": {
     "tailwind-scrollbar": "^3.0.4"
+  },
+  "engines": {
+    "node": ">=24"
   }
+  
 }
