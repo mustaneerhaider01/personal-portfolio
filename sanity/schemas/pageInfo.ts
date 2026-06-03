@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export default defineType({
   name: "pageInfo",
@@ -54,8 +54,13 @@ export default defineType({
     defineField({
       name: "socials",
       title: "Socials",
-      type: "array",
-      of: [{ type: "reference", to: { type: "social" } }],
+      type: "array" as const,
+      of: [
+        defineArrayMember({
+          type: "reference",
+          to: [{ type: "social" }],
+        }),
+      ],
     }),
   ],
 });
